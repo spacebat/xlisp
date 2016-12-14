@@ -1,7 +1,17 @@
-Load the test file into your running Lisp implementation, for example,
-`(load "point-mutations-test")`. This will run the tests the first
-time automatically. After that you can run the test suite in the REPL
-with `(lisp-unit:run-tests :all :point-mutations-test)`.
+Change the working directory of your lisp image to the directory of the
+exercise you want to work on, either by setting `*default-pathname-defaults*`
+directly or if using the SLIME REPL, with the slime-cd command (at the REPL,
+press `,` then `cd`). Then proceed to load the test file into your running Lisp
+implementation, for example, `(load "point-mutations-test")`. This will run the
+tests the first time automatically. After that you can run the test suite in
+the REPL with `(lisp-unit:run-tests :all :point-mutations-test)`, and get more
+usefully verbose information with:
+
+```
+(let ((*print-errors* t)
+      (*print-failures* t))
+  (run-tests :all :point-mutations-test))
+```
 
 ## Making your first Common Lisp solution
 
